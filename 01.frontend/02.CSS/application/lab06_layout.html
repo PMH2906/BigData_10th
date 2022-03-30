@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        /*header*/
+        header{
+            background-color: gray;
+            color:white;
+            text-align: center;
+            font-size:40px;
+        }
+        h1{
+            margin:0;
+        }
+        /*section*/
+        section{
+            display:flex;
+        } 
+        /*nav*/
+        nav{
+            float:left;
+            width:30%;
+            height:400px;
+            background-color: gainsboro;
+            padding: 20px;
+        }
+        nav ul{
+            /*가로 정렬*/
+            display: flex; 
+            list-style-type:none ;
+            padding: 0;
+        }
+        /* nav ul li{
+            float: left;
+        } */
+        /*article*/
+        article{
+            width:70%;
+            height:400px;
+            float:left;
+            padding:20px;
+            background-color: lightslategray;
+        }
+        /*footer*/
+        /*section뒤에 가상의 요소를 넣어줌*/
+        section::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        footer{
+            background-color: gray;
+            padding: 10px;
+            color:white;
+            text-align: center;
+        }
+        /*min-width: 800보다 크면 적용*/
+        /*max-width: 800보다 작으면 적용*/
+        @media screen and (max-width:800px){
+            nav{
+                width:100%;
+            }
+            article{
+                width:100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!--header-->
+        <header>
+            <h1>Header</h1>
+        </header>
+        <!--섹션-->
+        <section>
+            <!--내비-->
+            <nav>
+                <ul>
+                    <li><a href="">nav 1</a></li>
+                    <li><a href="">nav 2</a></li>
+                    <li><a href="">nav 3</a></li>
+                </ul>
+            </nav>
+            <!--article-->
+            <article>
+                <h2>Article</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dicta unde et illo neque iusto mollitia. Tempora, minima nihil. Voluptates laboriosam aliquam adipisci eum atque dolorum praesentium reprehenderit dolores non.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dicta unde et illo neque iusto mollitia. Tempora, minima nihil. Voluptates laboriosam aliquam adipisci eum atque dolorum praesentium reprehenderit dolores non.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dicta unde et illo neque iusto mollitia. Tempora, minima nihil. Voluptates laboriosam aliquam adipisci eum atque dolorum praesentium reprehenderit dolores non.</p>
+                
+            </article>
+        </section>
+        <!--footer-->
+        <footer>
+            <p>footer:BigData 10th</p>
+        </footer>
+    </div>
+</body>
+</html>
+<!--강사님 코드-->
+<!-- <style>
+    * {
+        box-sizing: border-box;
+    }
+    /* header */
+    header {
+        background-color: gray;
+        text-align: center;
+        font-size: 30px;
+        color: white;
+    }
+    h1 {
+        margin: 0;
+    }
+    /* nav */
+    nav {
+        float: left;
+        width: 30%;
+        height: 300px;
+        background-color: gainsboro;
+        padding: 20px;
+    }
+    nav ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+    }
+    article {
+        float: left;
+        width: 70%;
+        height: 300px;
+        padding: 20px;
+        background-color: lightslategray;
+    }
+    section::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    footer {
+        background-color: gray;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+    @media screen and (max-width:800px){
+        nav {
+            width: 100%;
+        }
+        article {
+            width: 100%;
+        }
+    }
+</style> -->

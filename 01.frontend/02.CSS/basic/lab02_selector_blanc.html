@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lab02_selector.html</title>
+    <style>
+        p {
+            text-align: center;
+            color: red;
+        }
+        #p1 {
+            text-align: center;
+            color: blue;
+        }
+        .font40 {
+            font-size: 40px;
+        }
+        .font50 {
+            font-size: 50px;
+        }
+        .right {
+            text-align: right;
+        }
+        h3, h4 {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selector</h1>
+    <h2>1. 태그 선택자</h2>
+    <p>모든 p태그에 스타일이 적용됩니다.</p>
+    <p>여기!</p>
+    <p>그리고 여기!</p>
+
+    <hr>
+    
+    <h2>2. 아이디 선택자</h2>
+    <p id="p1">아이디 지정된 것만 영향을 받습니다.</p>
+    <p>이 단락은 아이디 선택자의 영향을 받지 않습니다</p id="p1">
+    
+    <hr>
+    
+    <h2>3. 클래스 선택자</h2>
+    <p>클래스는 여러 요소를 대상으로, 여러 종류를 적용할 수 있습니다.</p>
+    <p class="font40">40px 크기의 텍스트</p>
+    <!--같은 속성이면 가장 오른쪽(right)에 있는 것으로 지정됨-->
+    <p class="font40 font50 right">40px 크기의 텍스트와 오른쪽 정렬</p>
+    <p class="font50 right">50px 크기의 텍스트와 오른쪽 정렬</p>
+    <!-- class는 스타일 시트 상 위에 있을 수록 먼저 적용 (최종적으로는 맨 아래쪽으로 덮임) -->
+    
+    <hr>
+    
+    <h2>4. 그룹 선택자</h2>
+    <h3>그룹 선택자는 여러 요소를</h3>
+    <h4>한 번에 선택할 수 있습니다</h4>
+
+</body>
+</html>

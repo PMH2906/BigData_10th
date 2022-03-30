@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            float:right;
+            margin-right:20px;
+        }
+        .box{
+            width:60px;
+            height:60px;
+            color:white;
+            font-weight:bold;
+            font-size:30px;
+            padding:10px;
+            border-radius: 6px;
+        }
+        .box1,.box3{
+            background-color: red;
+        }
+        .box2,.box4{
+            background-color: orange;
+        }
+        .box1,.box2{
+            float:left;
+        }
+        /*위에 있던 box3이 먼저 오른쪽으로 오고 난 뒤, box4가 위치함*/
+        .box3,.box4{
+            float:right;
+        }
+        /* .lorem{
+            clear:both;
+        } */
+        .container:after{
+            /*container 뒤에 가상의 content를 넣어준다*/
+            content:"";
+            /*가상의 content는 block특징*/
+            display:block;
+            /*가상의 content는 밑에 정렬된다*/
+            clear:both
+        }
+    </style>
+</head>
+<body>
+    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA3MjZfMjgg%2FMDAxNjI3MjgwOTc5MzM1.Ha2VIEbVi4lSwlAoAOlggGECUy654UA1gpWzZjjazn8g.kTzqlGcCHHECPcuZBoh-9n5tFUC2jqY3uXXhoUzmOWcg.JPEG.sogratefulday76%2FIMG_4063.jpg&type=a340">
+    <!-- <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque, quibusdam similique! Molestias consequatur ratione nobis, atque nam facilis mollitia odit dolores recusandae rerum at libero pariatur expedita ullam. Vel, dicta!
+    </div> -->
+
+    <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+        <div class="box box4">4</div>
+    </div>
+    <div class="lorem">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque, quibusdam similique! Molestias consequatur ratione nobis, atque nam facilis mollitia odit dolores recusandae rerum at libero pariatur expedita ullam. Vel, dicta!
+    </div>
+</body>
+</html>

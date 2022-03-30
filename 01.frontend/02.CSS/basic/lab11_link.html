@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>lab11_link.html</title>
+  <style>
+    /* 가상 클래스 선택자(:) */
+    /* 방문하지 않은 링크 일 때 */
+    a:link{
+        background-color: gold;
+    }
+    /* 방문한 링크 일 때 */
+    a:visited{
+        background-color: cyan;
+    }
+    /* 마우스를 링크 위에 올려 놓았을 때 */
+    a:hover{
+        background-color: lightgreen;
+    }
+    /* 클릭한 상태 */
+    a:active{
+        background-color: hotpink;
+    }
+    /* 입력 중인 상태 */
+    input:focus{
+        background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <h1>링크 (link)</h1>
+  <p>
+    <b><a href="" target=""> 링크를 건들여보아요</a></b>
+  </p>
+  <input type="text" placeholder="">
+</body>
+</html>

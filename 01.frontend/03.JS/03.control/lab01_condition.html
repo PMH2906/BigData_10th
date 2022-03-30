@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //조건문
+        //if
+        let age = 10;
+        if (age>17){
+            console.log('투표 가능');
+        }//블록:0개 이상의 명령문이 들어가는 곳
+        else if(age<=17&&age>=15){
+            console.log('고등학생 투표 불가능');
+        }
+        else{
+            console.log('투표 불가능');
+        }
+
+        // switch문/case문 + break
+        let stuff = 'gold';
+        switch(stuff){
+            case 'gold':
+                console.log('금입니다.'); 
+                break;
+            case 'silver':
+                console.log('은입니다.');
+                break;
+            default:
+                console.log('격려합니다.')
+        }
+    </script>
+    
+</body>
+</html>

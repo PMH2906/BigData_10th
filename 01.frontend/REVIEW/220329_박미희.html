@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*header*/
+        body{
+            margin: 0;
+            background-color: black;
+        }
+        header{
+            width: 100%;
+        }
+        .headerbar{
+            padding: 20px;
+            margin: 0;
+        }
+        .headerbar li{
+            display: inline-block;
+            list-style: none;
+            padding:0px;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        .main_nav a{
+            text-decoration:none;
+            color: white; 
+            font-size:13px;
+            padding: 5px;
+            vertical-align: middle;
+        }
+        .main_nav a:hover{
+            font-weight: bold;
+        }
+        .sub_nav{
+            float:right;
+            margin-right: 10px;
+        }
+        .sub_nav li{
+            padding: 5px;
+        }
+        .popular_movie
+        {
+            width: 100%;
+            height: 750px;
+            padding: 0;
+            margin: 0;
+            background-image: url(./image/movie.jpg) ;
+            background-size:cover;
+                
+        }
+       .movie_info{
+            position: absolute;
+            top:75%;
+            left: 80px;
+            color: white;
+       }
+       .title{
+           font-size: 50px;
+       }
+       .button div{
+            display: inline-block;
+            margin: 10px;
+            background-color: gainsboro;
+            border-radius: 6px;
+            font-size: 20px;
+            width: 100px;
+            padding: 10px;
+            text-align: center;
+       }
+       .button div:hover{
+           background-color: gray;
+       }
+       .list{
+            margin-top: 100px;
+            height: 500px;
+       }
+       .list ul{
+           list-style: none;
+           color:white;
+           font-size: 20px;
+       }
+       .movie-list{
+           padding: 0;
+       }
+       .movie-list li{
+            margin-top: 10px;
+            display: inline-block;
+            padding-right:30px ;
+       }
+       .movie-list img:hover{
+           width:235px; 
+           height:155px;
+       }
+       .movie-list img{
+        border-radius: 6px;
+       }
+       footer{
+           color:white;
+           text-align: right;
+           font-size: 10px;
+           padding-right: 10px;
+       }
+    </style>
+</head>
+<body>
+    <div class="popular_movie">
+        <!--header-->
+        <header>
+            <ul class="headerbar">
+                <li><a href="./220329_박미희.html"><img src="./image/logo.png"width="100px" height="30px" id="logo"></a></li>
+                <li>
+                    <nav class="main_nav">
+                        <ul>
+                            <li><a href="./220329_박미희.html">홈</a></li>
+                            <li><a href="">시리즈</a></li>
+                            <li><a href="">영화</a></li>
+                            <li><a href="">NEW! 요즘 대세 콘텐츠</a></li>
+                            <li><a href="">내가 찜한 콘텐츠</a></li>
+                            <li><a href="">음성 및 자막</a></li>
+                        </ul>
+                    </nav>
+                </li>
+                <li class="sub_nav">
+                    <nav class="sub_nav">
+                        <ul>
+                            <li><a href=""><img src="./image/search.png" width="20px" height="20px"></a></li>
+                            <li><a href=""><img src="./image/notice.png" width="20px" height="20px"></a></li>
+                            <li><a href=""><img src="./image/user.png" width="20px" height="20px"></a></li>
+                        </ul>
+                    </nav>
+                </li>
+            </ul>
+        </header>
+        <div class="movie_info">
+            <div class="title">
+                <b>기묘한 이야기</b>
+            </div>
+            <div class="button">
+                <div><b>재생</b></div>
+                <div><b>상세정보</b></div>
+            </div>
+        </div>
+    </div>
+        <!--섹션-->
+        <section>
+            <ul class="list">
+                <ul class="movie">
+                    <li><b>영화 프로그램<b></li>
+                    <li> 
+                        <ul class="movie-list">
+                            <li><img src="./image/movie2.JPG" width="230px" height="150px"><div></div></li>
+                            <li><img src="./image/movie3.JPG" width="230px" height="150px"><div></div></li>
+                            <li><img src="./image/movie4.JPG" width="230px" height="150px"><div></div></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- <ul class="drama">
+                    <li>드라마 프로그램</li>
+                    <li> 
+                        <ul class="drama-list"> 
+                            <li><img src="" width="120px" height="80px"></li>
+                            <li><img src="" width="120px" height="80px"></li>
+                            <li><img src="" width="120px" height="80px"></li>
+                        </ul>
+                    </li>
+                </ul> -->
+            </ul>
+        </section>
+        <footer>
+            <p>BigData 10th PMH</p>
+        </footer>
+</body>
+</html>

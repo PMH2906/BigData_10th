@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //while문 : 조건이 참일 때, 특정 기능 실행
+        while(false){
+            console.log('while문 실행');
+        }
+        //for문 : 특정 횟수만큼 반복하는 구문
+        for(let i=0;i<10;i++){
+            document.write('for문 실행')
+        }
+        //while문의 반복 횟수 제한
+        let i =0;
+        while(i<10){
+            console.log('while문실행');
+            i++;
+        }
+        for(let i=10;i>0;i--){
+            document.write('카운트 다운 : '+(i)+'초');
+            document.write('<br>');
+        }
+    </script>
+    <script>
+        // 반복문 내에 또 다른 반복문
+        // 구구단 : 1-9단
+        for(let i=1;i<=9;i++){
+            for(let j=1;j<=9;j++){
+                document.write(i+'*'+j+'='+i*j);
+                document.write('<br>')
+            }
+            document.write('<br>')
+        }
+
+        //조건문 내에 또 다른 조건문
+        //두 수의 크기를 비교 : 같다, 같지 않다(작다, 크다)
+        let a = 10;
+        let b = 11;
+        if(a==b){
+            document.write('같다');
+            document.write('<br>')
+        }
+        else{
+            if(a>b){
+                document.write('a가 크다');
+                document.write('<br>')
+            }
+            else{
+                document.write('a가 작다');
+                document.write('<br>')
+            }
+        }
+        //반복문 내에 조건문 혹은 조건문 내에 반복문
+        for(i=1;i<=100;i++){
+            if(i%2==0){
+                document.write(i);
+                document.write('<br>')
+            }
+        }
+    </script>
+    
+</body>
+</html>

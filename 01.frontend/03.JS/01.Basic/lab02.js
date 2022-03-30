@@ -1,0 +1,1 @@
+Document.getElementById('footer').innerHTML="Hello, footer";

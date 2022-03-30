@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x = 10; // 초기화
+        var y;// 선언
+        y=11; // 할당
+        console.log(x);
+        console.log(x+y);
+    </script>
+
+    <script>
+        // let
+        var a = 10;
+        console.log(a);
+        // var a = 20;으로 다시 선언해도 오류X
+        var a = 20;
+        console.log(a);
+
+        let b = 30;
+        console.log(b);
+        // let b = 40으로 다시 선언하면 오류O
+        // let의 b라는 그릇은 이미 선언 되었기 때문
+        // 변수에 들어가는 내용은 변경 가능
+        //let b = 40;//error
+        b=40;
+        console.log(b);
+
+        //const
+        const c = 50;
+        cosole.log(c);
+        //const는 내용도 변경 불가
+        // c=60; //error
+    </script>
+</body>
+</html>

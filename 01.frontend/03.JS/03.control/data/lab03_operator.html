@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 연산
+        // 산술연산
+        console.log(5*300);
+        console.log(3%7); // 나머지 연산자
+        console.log(10 ** 2);
+
+        //문자열 연산 ~출력
+        const name = 'js';
+        const name2 = 'programming';
+        console.log(name+name2);
+        //문자열과 숫자 연산은 불가능
+        // console.log(name*3); //error
+   
+        // 증감 연산 : ++, --
+        let num=10;
+        console.log(num);
+        console.log(++num); //증가되고 출력
+        console.log(num++); //출력하고 증가
+        console.log(num);
+    </script>
+    <script>
+        // 대입연산 : =
+        let num2 = 20;
+        console.log(num2);
+        num += 10;
+        console.log(num2);
+    </script>
+    <script>
+        //비교연산 : ==, <, <= , >, >=, !=
+        let num3 = 30;
+        let num4 = 40;
+        console.log(num3 == num4);
+        console.log(num3 != num4);
+
+        console.log(num3!=30);
+        //숫자랑 문자랑 비교할 때는 같은 타입으로 인식함
+        //문자열 30을 숫자 30으로 인식
+        console.log(num3=='30') //ture
+
+        // '===' 은 타입까지도 확인함
+        //따라서 숫자 30과 문자 30으로 인식하여 false출력
+        console.log(num3==='30') //false
+
+        //typeof
+        console.log(typeof(num3)); // 타입을 알려줌
+    </script>
+    <script>
+        //논리 연산 : &&, ||(하나라도 true면 true), !(반전)
+        let t = true;
+        let f = false;
+        console.log(t && t);
+    </script>
+    <script>
+        // undefined & null
+        // undefined : 변수 선언은 됐는데, 값이 할당되지 않은 상태
+        let x;
+        console.log(x+10); //NaN(Not a Number: 숫자가 아님)
+
+        //null : 어떤 자료형(타입)에도 속하지 않음
+        console.log(null);
+
+        console.log('Three'/3); //NaN 출력
+        console.log(1/0); //Infinity 출력
+    </script>
+    <script>
+        // 타입 변환
+        // 암묵적 타입 변환(의도치 않게 바뀌는 것) vs 명시적 타입 변환(확실하게 바꿔주는 것)
+        // 암묵적으로 변환되지 않는 것도 존재
+        console.log(typeof(1+'2'));//출력 타입:string
+        console.log(1+'');
+        console.log(typeof(NaN+''));
+
+        //문자열
+        console.log(typeof(+'1'));// 앞에 기호가 붙으면 number type 1로 변환
+        console.log(typeof(+'NaN'));// 앞에 기호가 붙으면 NaN type 1로 변환
+        console.log(+Null); // 숫자 type의 0으로 출력
+        //불리언
+        console.log(+ture); // true가 아닌 1로 출력
+
+    </script>
+</body>
+</html>

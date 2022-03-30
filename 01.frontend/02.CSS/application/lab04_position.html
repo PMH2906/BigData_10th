@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*static-parent인 부모 요소의 position이 static이므로 absolute/relative의 위치 기준은 body*/
+        /*만약 기준을 tatic-parent로 잡고싶다면 position : relative로 지정!*/
+        .static-parent{
+            width:120px;
+            height:120px;
+            background-color: grey;
+            border: 1px solid grey;
+        }
+        .static-box{
+            width:100px;
+            height: 100px;
+            background: navy;
+            position: static;
+            color :red;
+        }
+        .relative-box{
+            width:100px;
+            height: 100px;
+            background: navy;
+            position: relative;
+            top : 60px;
+            left: 60px;
+            color :red;
+        }
+        .absolute-box{
+            z-index: -99999;
+            width:100px;
+            height: 100px;
+            background: gray;
+            position: absolute;
+            top : 60px;
+            left : 60px;
+            color :red;
+        }
+        .fixed-box{
+            position:fixed;
+            background-color: black;
+            color:white;
+            width:100%;
+            height: 60px;
+            bottom:0;
+            left:0;
+        }
+        .overflow{
+            width:150px;
+            height:150px;
+            border-style: dashed;
+            padding : 15px;
+            margin:15px;
+            float: left;
+        }
+        .visible{
+            overflow:visible;
+        }
+        .hidden{
+            /*글씨가 넘친 부분은 안 보임*/
+            overflow: hidden;
+        }
+        .scroll{
+            /*글씨가 넘친 부분은 상,하,좌,우 scroll형태*/
+            overflow: scroll;
+        }
+        .auto{
+            /*글씨가 넘친 부분은 상,하 scroll형태*/
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="static-parent">
+        <div class="static-box">static</div> -->
+        <!-- <div class="relative-box">relative</div> -->
+        <div class="absolute-box">absolute</div>
+        <!-- <div class="fixed-box">footer</div> -->
+    </div>
+
+    <!--overflow-->
+    <div class="overflow" visible>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio harum. Non, dolorum ad illum temporibus veritatis voluptate illo eaque similique numquam adipisci, ex libero, optio sit sint eum.</h3>
+    </div>
+    <div class="overflow hidden">
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio harum. Non, dolorum ad illum temporibus veritatis voluptate illo eaque similique numquam adipisci, ex libero, optio sit sint eum.</h3>
+    </div>
+    <div class="overflow scroll">
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio harum. Non, dolorum ad illum temporibus veritatis voluptate illo eaque similique numquam adipisci, ex libero, optio sit sint eum.</h3>
+    </div>
+    <div class="overflow auto">
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio harum. Non, dolorum ad illum temporibus veritatis voluptate illo eaque similique numquam adipisci, ex libero, optio sit sint eum.</h3>
+    </div>
+</body>
+</html>

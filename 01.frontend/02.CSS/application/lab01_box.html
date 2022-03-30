@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            box-sizing: border-box;/*border box까지만 해당함*/
+            width:300px;
+            height:100px;
+            background-color: beige;
+            border: 1px solid;
+            border-color: blue;
+        }
+        p{
+            border-style: solid;
+            /*border-color에 네가지 색상 적용하면 모두 적용됨*/
+            /*상에서부터 시계방향적용:상|우|하|좌*/
+            border-color:red blue yellow green;
+
+            /*border-color에 세가지 색상*/
+            /*상|우 좌| 하*/
+            border-color:red blue yellow;
+
+            /*border-color에 세가지 색상*/
+            /* 상 하|우 좌 */
+            border-color:red blue 
+        }
+
+        p.div-border{
+            border:1px solid;
+            width:150px;
+            height:150px;
+            background-color: gainsboro;
+            /*모든 각을 둥글게 만듬*/
+            border-radius:10px;
+            /*특정 부분의 각을 둥글게 만듬*/
+            border-top-left-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vel voluptatibus, velit repudiandae autem quidem ex perspiciatis culpa ullam id officiis, libero facere! Vero voluptas laudantium dolorum, excepturi obcaecati dicta.
+    </div> -->
+
+    <!-- border -->
+    <p>
+        border-color
+    </p>
+
+    <p class="div-border">
+
+    </p>
+</body>
+</html>

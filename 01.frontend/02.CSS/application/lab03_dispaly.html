@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inline_block{
+            display: inline-block;
+            border:5px solid green;
+        }
+        .div1{
+            width:300px;
+            height:60px;
+        }
+        .div2{
+            width:300px;
+            height:120px;
+        }
+        .visible{
+            visibility: visible;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        .diplay-none{
+            display: none;
+        }
+    </style>
+</head>
+<!--- 
+    Block
+
+      - 화면 크기(100%, 행) 전체를 차지
+
+      - width, height, margin, padding 지정가능
+
+      - 내부에 inline 요소가 들어갈 수 있음
+
+      - ex) div, p, h~, li, form, ...
+
+    Inline
+
+      - content의 너비만큼 차지
+
+      - width, height, margin-top/bottom 지정 불가능
+
+       - 내부에 block 요소 들어갈 수 없음
+
+       - ex) a, input, span, strong,  ...
+-->
+<body>
+    <div class="inline_block div1">높이:60px</div>
+    <div class="inline-block div2">높이:120px</div>
+    <!--visibility-->
+    <!--display : none은 자리 차지 X/특정 acting하면 생성 가능-->
+    <div class="visible">visibility : visible</div>
+    <div class="hidden">visibility : hidden</div>
+    <div class="diplay-none">display : none</div>
+</body>
+</html>
