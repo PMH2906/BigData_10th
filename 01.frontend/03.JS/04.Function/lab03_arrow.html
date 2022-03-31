@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arrow = function(){
+        //     console.log('arrow function');
+        // }
+        
+        // 익명 함수는 arrow 사용 가능
+        let arrow = () => { console.log('arrow function'); }
+        arrow();
+
+        //직접해보기 : sum, minus에 대한 연산 결과를 반환하는 화살표 함수 만들기 
+        let x =10;
+        let y = 5;
+        let sum = (x,y) => {return x+y}
+        let minus = (x,y) => x-y; // 해당 방식도 존재
+        console.log(sum(x,y))
+        console.log(minus(x,y))
+
+        //즉시 실행 함수
+    </script>
+</body>
+</html>
