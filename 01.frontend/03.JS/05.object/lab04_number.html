@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //숫자 : 명시적 형변환
+        let strNum = '10';
+        console.log(Number(strNum)); // 숫자로 변경
+        console.log(typeof(Number(strNum)));
+
+        let strNum2 = 'ten';
+        console.log(Number(strNum2)); //NaN
+
+        let objNum = new Number(10); //객체 타입의 number에 10을 넣어줌
+        console.log(typeof(objNum));
+        console.log(objNum.valueOf()); // value 출력
+        console.log(typeof(objNum.valueOf())); //Number출력
+
+        // parse
+        // parseInt():정수
+        console.log(parseInt(1.23)); //실수를 정수로 변환(내림)
+        console.log(parseInt(1.53));
+
+        // parseFloat() : 실수
+        console.log(parseFloat(1.1));
+        console.log(parseFloat(1));
+
+        // tofixed() : 지정한 소수점 자리만큼 표시(반올림)
+        let float1 = 123.456789;
+        console.log(float1.toFixed(2)); // 2의 자리에서 올림
+        console.log(float1.toFixed(5)); // 2의 자리에서 올림
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // String
+        let str1='abcdefg';
+        str1.length
+
+        //문자열 조회
+        //charAt
+        console.log(str1.charAt(2)); // 해당 인덱스 출력
+        console.log(str1.indexOf(2)); // 해당 인덱스 출력
+        console.log(str1[0]);
+
+        //substring 문자열 slice
+        console.log(str1.substring(3,5)); //문자열 자르기
+        
+        //replace 문자열 교체
+        console.log(str1.replace('bcd','BCD'));
+
+        // 문자열 자르기
+        let str2 = 'HTML, CSS, JS, Python, JAVA, SQL, HADOOP';
+        console.log(str2.split(',')[4]);
+
+        // 문자열 합치기
+        let str3='노는게';
+        let str4 = '제일좋아';
+        console.log(str3.concat(str4));
+        console.log(str3+str4);
+
+        // 명시적 형변환
+        console.log(typeof(String(1)));
+        console.log(String(1));
+        console.log(String(true));
+        console.log(String(NaN));
+        console.log((1).toString());
+    </script>
+    
+</body>
+</html>
