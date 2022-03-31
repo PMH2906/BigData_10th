@@ -25,6 +25,28 @@
         console.log(minus(x,y))
 
         //즉시 실행 함수
+        //이름 O 함수
+        // (function immediatelyFunc(){
+        //     alert('welcome');
+        // }());
+        
+        // //이름 X 함수
+        // (function (){
+        //     alert('welcome');
+        // }());
+        
+        // 매개변수 O 함수
+        // 즉시 함수는 적용되기 전에 맨 처음으로 실행되어 data가 만들어지기 전에 실행됨. 
+        // 아래와 같이 쓰면 => undefined 출력
+        let data = 'welcome';
+        (function immediatelyFunc2(data){
+            alert(data);
+        }());
+
+        //고쳐주기
+        (function immediatelyFunc2(data){
+            alert(data);
+        }(data));
     </script>
 </body>
 </html>
