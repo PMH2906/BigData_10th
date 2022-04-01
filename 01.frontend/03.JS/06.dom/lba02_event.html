@@ -70,7 +70,7 @@
             //console.log('check 실행 확인out');
             checkService.classList.add('hide');
          
-        });
+        // });
         // MouseEvent : Mousedown : 마우스 꾹 누르고 있을 때
         checkElement.addEventListener('mousedown',function(){
             //console.log('check 실행 확인out');
@@ -98,6 +98,11 @@
         //keyboard : keyboard up/down, press, ...
         inputElement.addEventListener('keydown',function(e){
             document.getElementById('content3').innerHTML += e.key;
+        });
+
+        const serviceList = document.querySelector('.check-service');
+        serviceList.addEventListener('click',function(event){
+            console.log(event);
         });
 
     </script>
