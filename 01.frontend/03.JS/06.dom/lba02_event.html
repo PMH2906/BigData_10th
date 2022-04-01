@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .red{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>메뉴</h1>
+        <div id="desc" class ='red'>설명</div>
+        <hr>
+        <h3>서비스</h3>
+        <button id="check" class="nav" name="check" onclick="clickFunc();">조회</button><!--인라인방식-->
+        <button id="transfer" class="nav">이체</button>
+        <ul class="check-service hide">
+            <li>계좌조회</li>
+            <li>수표조회</li>
+            <li>오픈뱅킹</li>
+        </ul>
+
+        <button>test</button>
+
+        <p id="content"></p>
+        <p id="content2"></p>
+        <p id="content3"></p>
+
+        <h3>회원가입</h3>
+        ID : <input type="text" id="newId">
+    </div>
+    <script>
+        const checkElement = document.getElementById('check');
+
+        // 인라인 방식 : 중복 이벤트 등록 가능
+        function clickFunc(){
+            console.log('클릭 이벤트 발생');
+        }
+
+        // 프로퍼티 방식 : 중복 이벤트 등록 불가능 
+        checkElement.onclick = function clickFunc(){
+            document.getElementById('content').innerHTML='계좌조회(클릭이벤트발생)';
+        }
+
+        //이벤트 핸들러 방식 : 중복 이벤트 등록 가능
+        checkElement.addEventListener('click',function clickFunc(){
+            document.getElementById('content').innerHTML='계좌조회(리스너)';
+        }); //클릭이라는 이벤트 해줄때, 할 행동
+
+        // 클릭, 마우스오버, 마우스클릭(down) , 타이핑 등
+        // MouseEvent : MouseOver
+        // const checkService = document.getElementsByClassName('check-service');
+        const checkService = document.querySelector('.check-service');
+        checkElement.addEventListener('mouseover',function(){
+            //console.log('check 실행 확인over'); // 확인하는 과정
+            //console.log(checkService.classList);
+            checkService.classList.remove('hide');
+        });
+        // MouseEvent : MouseOut
+        checkElement.addEventListener('mouseout',function(){
+            //console.log('check 실행 확인out');
+            checkService.classList.add('hide');
+         
+        });
+        // MouseEvent : Mousedown : 마우스 꾹 누르고 있을 때
+        checkElement.addEventListener('mousedown',function(){
+            //console.log('check 실행 확인out');
+            document.getElementById('desc').style.color='red';
+         
+        });
+        // MouseEvent : Mouseup : 마우스 꾹 누르고 난 후, 뺐을때
+        checkElement.addEventListener('mouseup',function(){
+            //console.log('check 실행 확인out');
+            document.getElementById('desc').style.color='black';      
+        });
+
+        // focus : 어떤 행위가 발생했을 때, 이벤트 발생
+        // blur
+        const inputElement = document.getElementById('newId'); //getElementByI를 사용하면 입력되는 text를 가져올수X
+        // const inputElement = document.querySelector('input[type="text"]');
+        // inputElement.addEventListener('blur',function(){
+        //     //console.log('input');
+        //     console.log(inputElement.textContent);
+        // });
+        
+        //keyboard : keyboard up/down, press, ...
+        inputElement.addEventListener('keydown',function(e){
+            document.getElementById('content3').innerHTML += e.key;
+        });
+
+    </script>
+</body>
+</html>

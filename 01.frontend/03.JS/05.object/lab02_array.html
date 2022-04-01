@@ -47,6 +47,44 @@
             console.log(i);
         });
 
+        // 메모리 할당 영역 : call stack
+        // call stack은 같은 값을 가지면 같은 주소를 가짐
+        // Heap영역은 아님 
+        let a = 1;
+        let b = a; // a랑 같은 주소를 가짐
+        console.log(b);
+
+        b = 2; // b에 다른 숫자를 대입함으로서 다른 주소를 가짐
+        console.log(b);
+
+        a = 3; // 원래의 주소랑 다른 주소를 가짐으로서 원래의 주소와 값은 가비지컬렉터가 삭제해줌
+        console.log(a);
+
+        // 메모리 할당 영역 : heap
+        let arr = [1, 2, 3];
+        let shallowArr = arr; // 얕은 복사
+        let arr2 = [1, 2, 3];
+        console.log(arr == shallowArr); // true 출력 //데이터 값만 비교
+        console.log(arr === shallowArr); // true 출력 //타입까지 비교
+
+        // call stack은 같은 값을 가지면 같은 주소를 가짐
+        // Heap영역은 아님 
+        console.log(arr == arr2); // false 출력 why? heap같은 영역은 같은 값을 가지더라도 다른 주소를 할당해줌. 따라서 같은 대상이 아니다라고 인식.
+        console.log(arr === arr2); // false 출력 why?
+
+        arr[0]=0;
+        console.log(arr);
+        console.log(shallowArr); // shallowArr 또한 0으로 바뀜
+        // why? call stack에서 heap영역 arr의 동일한 주소값을 참고하기 때문에 해당 주소의 값이 바뀌므로 같이 바뀜   
+
+        // 깊은 복사
+        let deepArr1 = arr.slice(); // heap영역에 원래 존재하고 있던 원본이 다시 만들어지고, 다른 주소를 가짐
+        let deepArr2 = arr.concat(); // 기존에 있던 배열을 가져다가 붙여준 다음 위와 같은 원리로 새로운 객체 생성
+        let deepArr3 = Array.from(arr); // arr대상으로부터 위와 같은 원리로 배열 생성
+
+        console.log(arr==deepArr1); //false출력
+        console.log(arr==deepArr2); //false출력
+        console.log(arr==deepArr3); //false출력
     </script>
 </body>
 </html>
