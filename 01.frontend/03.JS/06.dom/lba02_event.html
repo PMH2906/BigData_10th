@@ -36,6 +36,7 @@
 
         <h3>회원가입</h3>
         ID : <input type="text" id="newId">
+        <div class="erroMsg"></div>
     </div>
     <script>
         const checkElement = document.getElementById('check');
@@ -85,11 +86,14 @@
         // focus : 어떤 행위가 발생했을 때, 이벤트 발생
         // blur
         const inputElement = document.getElementById('newId'); //getElementByI를 사용하면 입력되는 text를 가져올수X
-        // const inputElement = document.querySelector('input[type="text"]');
-        // inputElement.addEventListener('blur',function(){
-        //     //console.log('input');
-        //     console.log(inputElement.textContent);
-        // });
+        //const inputElement = document.querySelector('input[type="text"]');
+        inputElement.addEventListener('blur',function(){
+            //console.log('input');
+            //console.log(inputElement.value.length);
+            if(inputElement.value.length<=0){
+                document.getElementById('erroMsg').innerHTML='아이디를 입력해주세요'
+            }
+        });
         
         //keyboard : keyboard up/down, press, ...
         inputElement.addEventListener('keydown',function(e){
