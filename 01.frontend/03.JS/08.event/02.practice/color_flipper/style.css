@@ -1,0 +1,40 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
+
+/* reset.css : 기본 css 스타일 초기화 */
+body{
+    margin: 0; /*m0 : 자동 완성*/
+    font-family: 'Rubik Puddles', 'Open Sans';
+}
+
+/* style css */
+main{
+    /* 가로축 중심 중앙 */
+    display: flex;
+    justify-content: center; 
+    /* 세로축 중심 중앙 */
+    height : 60vh; /*viewport height : 각자의 모니터 크기 기준의 퍼센트*/
+    align-items: center; /*main content 만큼의 중앙*/
+    
+}
+.container{
+    text-align: center;
+}
+
+.container h2{
+    color:white;
+    background-color: #000;
+    padding: 1rem;
+}
+
+.btn{
+    border : 1px dashed black;
+    font-family: inherit; /*부모 속성을 전달받음*/
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;/*대문자*/
+    background-color: transparent; /*배경색 투명*/
+    /* 상하 0.5rem, 좌우 0.75rem */
+    padding: 0.5rem 0.75rem; /*상하/좌우*/ /*12시부터 시계방향*/
+}
