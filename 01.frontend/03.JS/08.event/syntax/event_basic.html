@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 이벤트 추가,제거</title>
+
+</head>
+<body>
+    <h1>JavaScript 이벤트 추가,제거</h1>
+    <hr>
+
+    <a href="https://developer.mozilla.org/ko/docs/Web/Events">이벤트 참조</a>
+    <!-- 1. EventHandler arrtibute 방식 -->
+    <h3>1. EventHandler attribute way</h3>
+    <button onclick="display()">Click me!</button> <!--함수 호출-->
+    <script>
+        function display(){ //이벤트 핸들러 함수 선언
+            console.log('button clicked');
+        };
+    </script>
+
+    <!-- 2. EventHandler property 방식:HTML과 JS를 분리 -->
+    <h3>2. EventHandler property way</h3>
+    <button id="btn-ev-prop">Click me!</button>
+
+    <!-- 3. addEventListener method 방식:HTML과 JS를 분리 -->
+    <h3>3. addEventListner method way</h3>
+    <button id ="btn-add-ev-lsnr">Click me!</button>
+    
+    <script src="event_basic.js"></script>
+
+    
+</body>
+</html>
