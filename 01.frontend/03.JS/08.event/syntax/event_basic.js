@@ -49,3 +49,16 @@ addEvLsnrButton.addEventListener('mouseover',buttonHandler2);
 addEvLsnrButton.addEventListener('click',()=>{
     console.log('by addEventListener with arrow function');
 });
+
+// 이벤트 핸들러 제거
+// 1. EventHandler attribute : onclick attribute 코드 제거
+
+// 2. EventHandler property 방식 : 해당 property에 null 할당
+evPropButton.onclick=null;
+
+// 3. addEventListener method 방식 : 별도의 이벤트 제거 함수 호출
+addEvLsnrButton.removeEventListener('dblclick',buttonHandler);
+addEvLsnrButton.removeEventListener('mouseover',buttonHandler2);
+
+// click 이벤트도 제거 => 제거 불가능
+// why? 익명함수라서
