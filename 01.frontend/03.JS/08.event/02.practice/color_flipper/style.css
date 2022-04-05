@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
 
 /* reset.css : 기본 css 스타일 초기화 */
-body{
+html, body{
     margin: 0; /*m0 : 자동 완성*/
     font-family: 'Rubik Puddles', 'Open Sans';
 }
