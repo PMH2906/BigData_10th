@@ -12,3 +12,6 @@ main{
 body{
     text-align: center;
 }
+.count_result {
+    color: grey;
+}
