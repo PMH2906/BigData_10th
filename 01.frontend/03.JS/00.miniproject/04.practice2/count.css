@@ -1,0 +1,14 @@
+.btn{
+    border: 1px dashed black;
+    background-color: transparent;
+    padding:10px;
+    margin: 5px;
+}
+main{
+    /* 가로축 중심 중앙 */
+    display: flex;
+    justify-content: center;
+}
+body{
+    text-align: center;
+}
