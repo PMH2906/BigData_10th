@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Count</title>
     <link rel="stylesheet" href="./style.css">
-    <!--  HTML이 다 뜨고 난 후 JS적용하기 위해 defer 사용 -->
+    <!--  해당 코드로 JS를 먼저 실행시키면 HTML의 btn이 선언되기 전에 JS 파일로 이동해, btn을 찾지못해 btn을 JS에서 객체화 시킬 때 오류남 -->
+    <!-- 따라서 defer를 사용하여 JS를 읽는 과정을 HTML을 다 읽고 나서 읽는 순서로 미룰 수 O -->
     <script defer src="app.js"></script> 
 
 </head>

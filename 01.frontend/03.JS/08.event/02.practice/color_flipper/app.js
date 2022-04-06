@@ -40,6 +40,8 @@ function getRandomNumber(min, max){
         // console.log(Math.random);
         // max : 255
         // floor : 내림함수 
+        // 0-255 : 255 -0 + 1 : (1더해주는 이유는 random함수는 1이하의 값을 return. 따라서 최댓값 255가 나올 수 x. 254가 최대이므로 +1 해줌. )
+        // min 더하는 이유:최솟값을 min으로 설정해주기 위해
         const randomNumber = Math.floor(Math.random() * (max - min  + 1)) + min;
         // console.log(randoNumber)
 
