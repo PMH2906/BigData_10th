@@ -49,38 +49,57 @@
 // 2.send() : HTTP요청 실제 전송
 
 // console.log(new XMLHttpRequest());
-const xhr = new XMLHttpRequest();
-// DOM, xxx.getElemenById();
+// const xhr = new XMLHttpRequest();
+// // DOM, xxx.getElemenById();
 
-// 요청 보낼 준비
-// xhr.open(요청 메서드,요청URL);
+// // 요청 보낼 준비
+// // xhr.open(요청 메서드,요청URL);
+// xhr.open('GET','https://jsonplaceholder.typicode.com/todos'); // 'GET' : server의 data를 조회하고 싶을 때
+// // console.log(xhr.readyState); // 1
+// console.log(`OPENDED, ${xhr.readyState}`); // OPENED, 1
+
+// // readeState 프로퍼티 값이 변경될 때마다 arrow함수 호출
+// xhr.onreadystatechange = () =>{
+//     if(xhr.readyState==2){ // 데이터가 send()를 호출했지만, server로 응답받지 x 
+//         console.log(`HEADER_RECEIVED ${xhr.readyState}`);
+//     }
+
+//     //데이터 응답(로딩) 완료와 같음. == onload
+//     if(xhr.readyState == 4 && xhr.status == 200) {// 응답이 끝났고 && 응답이 성공했을때
+//         console.log(`DONE, ${xhr.readyState}`); 
+//         console.log(`response data:${typeof xhr.responseText}`);
+        
+//         // const responseData = xhr.responseText;
+//         // console.log(responseData.completed);
+//         // console.log(responseData[7]);
+
+//         // const parseData = JSON.parse(responseData);
+//         // console.log(parseData);
+//     }
+// };
+// // 브라우저가 데이터를 받는 동안 주기적으로 발생
+// xhr.onprogress = ()=> console.log(`LOADING, ${xhr.readyState}`);
+
+// // 데이터 응답(로딩)이 완료된 경우
+// xhr.onload = () => console.log(`DONE, ${xhr.readyState}`); 
+
+// xhr.send();
+
+
+
+// 이것만 쓰기!!!!
+const xhr = new XMLHttpRequest();
+
 xhr.open('GET','https://jsonplaceholder.typicode.com/todos'); // 'GET' : server의 data를 조회하고 싶을 때
-// console.log(xhr.readyState); // 1
-console.log(`OPENDED, ${xhr.readyState}`); // OPENED, 1
 
 // readeState 프로퍼티 값이 변경될 때마다 arrow함수 호출
 xhr.onreadystatechange = () =>{
-    if(xhr.readyState==2){ // 데이터가 send()를 호출했지만, server로 응답받지 x 
-        console.log(`HEADER_RECEIVED ${xhr.readyState}`);
-    }
-
+    
     //데이터 응답(로딩) 완료와 같음. == onload
     if(xhr.readyState == 4 && xhr.status == 200) {// 응답이 끝났고 && 응답이 성공했을때
         console.log(`DONE, ${xhr.readyState}`); 
         console.log(`response data:${typeof xhr.responseText}`);
-        
-        // const responseData = xhr.responseText;
-        // console.log(responseData.completed);
-        // console.log(responseData[7]);
-
-        // const parseData = JSON.parse(responseData);
-        // console.log(parseData);
     }
 };
-// 브라우저가 데이터를 받는 동안 주기적으로 발생
-xhr.onprogress = ()=> console.log(`LOADING, ${xhr.readyState}`);
-
-// 데이터 응답(로딩)이 완료된 경우
-xhr.onload = () => console.log(`DONE, ${xhr.readyState}`); 
 
 xhr.send();

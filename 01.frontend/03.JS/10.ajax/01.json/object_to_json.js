@@ -33,7 +33,7 @@ const jsonData = JSON.stringify(book);
 console.log(typeof jsonData); // String타입
 console.log(jsonData);
 
-const books = [
+const bookparsedDatas = [
     {
         id: 1,
         title : '하농',
