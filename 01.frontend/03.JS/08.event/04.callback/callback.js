@@ -1,4 +1,4 @@
-// 콜백함수 기본
+// 콜백함수 기본 : 매개변수로 함수를 넣어줌. 그 함수가 콜백함수.
 // name : parameter(매개변수), arguments(인자값)
 function greeting(name){ // 함수 정의, 선언부에 쓰는 것이 parameter
     // name : local variable
