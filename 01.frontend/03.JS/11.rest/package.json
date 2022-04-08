@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "서버를 실행하는 코드"
+    "start" : "npx json-server --watch data.json"
+  
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "json-server": "^0.17.0"
-  }
+  "license": "ISC"
 }
