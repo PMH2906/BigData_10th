@@ -3,9 +3,13 @@
 const getButton = document.getElementById('get-btn');
 console.log(getButton);
 
+const postButton = document.getElementById('post-btn');
+console.log(postButton);
+
 const [id, realname] = document.getElementsByTagName('p');//HTMLCollection[p.id,p.name]
 // console.log(id, realname); 
 
+// 데이터 조회
 getButton.addEventListener('click',()=>{
     // XMLHttpRequest 객체(인스턴스 생성)
     const xhr = new XMLHttpRequest();
@@ -28,4 +32,37 @@ getButton.addEventListener('click',()=>{
         } 
     };
     xhr.send();
+});
+
+// 데이터 등록
+postButton.addEventListener('click',()=>{
+    // XMLHttpRequest 객체(인스턴스 생성)
+    xhr = new XMLHttpRequest();
+
+    //HTTP 요청 준비
+    xhr.open('POST','/users');
+
+    // xhr.setRequestHeader('key','value');
+    xhr.setRequestHeader('Content-type','application/json');
+
+    // HTTP 요청 상태 확인
+    xhr.onload = () => {
+        if(xhr.status === 200 || xhr.status === 201){
+            console.log(xhr.response);
+        }
+    }
+
+    const newUser = {
+        id : 11,
+        name : 'Me',
+        username: 'park-me-hee',
+        company : {
+            id : 'c1',
+            name : 'Me'
+        }
+    }; 
+
+    const toJson = JSON.stringify(newUser);
+    // HTTP 요청 전송
+    xhr.send(toJson);
 });
