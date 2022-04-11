@@ -27,4 +27,37 @@ targetSelect.addEventListener('change', () => {
 sourceTextArea.addEventListener('input', (event) => {
     const text = event.target.value;
     console.log(text);
+
+    //비동기 요청을 도와주는 Web API 객체 생성
+    const xhr = new XMLHttpRequest();
+
+    //node 서버의 특정 url 주소
+    const url = '/detectLangs';
+
+    xhr.onreadystatechange = ()=> {
+        if(xhr.readyState === 4 && xhr.status === 200){
+            console.log(xhr.responseText);
+        }
+    };
+
+    // 요청준비
+    xhr.open('POST',url);
+
+    // Node 서버에 보낼 객체 형태의 JSON 데이터
+    const requestData = {
+        text, // 프로퍼티이름이랑 변수 이름 같으면 하나로 써줘도 됨. == text:text;
+        targetLanguage,
+    };
+    
+    xhr.setRequestHeader('Content-type','application/json');
+    
+    //JSON 의 타입은?
+    const ObjectToJson = JSON.stringify(requestData);
+
+
+    // 요청 전송
+    //url = '/detectLangs';
+    //xhr.open('POST',url); 이므로 send하면 해당 url server로 send!
+    xhr.send(ObjectToJson);
+
 });
