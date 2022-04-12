@@ -13,6 +13,9 @@ const [sourceTextArea, targetTextArea] = document.getElementsByTagName('textarea
 const [sourceSelect, targetSelect] = document.getElementsByTagName('select');
 // console.log(sourceSelect, targetSelect);
 
+
+const selectbox = document.getElementsByClassName('form-select');
+
 // 번역할 언어의 기본 타입(en)
 let targetLanguage = 'en';
 
@@ -23,41 +26,68 @@ targetSelect.addEventListener('change', () => {
     targetLanguage = targetSelect.options[selectedIndex].value;
     console.log(targetSelect.options[1]);
 });
-
+let debouncer; // debounce 변수 선언
 sourceTextArea.addEventListener('input', (event) => {
-    const text = event.target.value;
-    console.log(text);
 
-    //비동기 요청을 도와주는 Web API 객체 생성
-    const xhr = new XMLHttpRequest();
+    if(debouncer){ // deboucer에 TimeID값이 있으면(카운팅 하고 있다는 의미)
+        clearTimeout(debouncer) // 현재 타이머 카운트 초기화
+    }
 
-    //node 서버의 특정 url 주소
-    const url = '/detectLangs';
-
-    xhr.onreadystatechange = ()=> {
-        if(xhr.readyState === 4 && xhr.status === 200){
-            console.log(xhr.responseText);
+    deboubcer = setTimeout(()=>{
+        const text = event.target.value;
+        console.log(text);
+    
+        console.log(event);
+    
+        if(text){
+    
+            //비동기 요청을 도와주는 Web API 객체 생성
+            const xhr = new XMLHttpRequest();
+        
+            //node 서버의 특정 url 주소
+            const url = '/detectLangs';
+        
+            xhr.onreadystatechange = ()=> {
+                if(xhr.readyState === 4 && xhr.status === 200){
+                    // console.log(xhr.responseText);
+                    const responseData = JSON.parse(xhr.responseText);
+        
+                    const result = responseData['message']['result'];
+                    
+                    // 번역된 텍스트를 결과 화면에 입력
+                    targetTextArea.value = result['translatedText'];
+        
+                    // const resultSrcLangType = result['SrcLangType'];
+                    // console.log(selectbox)
+                    // for(var i =0; i<=selectbox.length;i++){
+                    //     if (selectbox.options[i].value===resultSrcLangType){
+                    //         selectbox.options[i].selected = 'true';
+                    //         break
+                    //     }
+                    // }
+        
+                }
+            };
+        
+            // 요청준비
+            xhr.open('POST',url);
+        
+            // Node 서버에 보낼 객체 형태의 JSON 데이터
+            const requestData = {
+                text, // 프로퍼티이름이랑 변수 이름 같으면 하나로 써줘도 됨. == text:text;
+                targetLanguage,
+            };
+            
+            xhr.setRequestHeader('Content-type','application/json');
+            
+            //JSON 의 타입은?
+            const ObjectToJson = JSON.stringify(requestData);
+        
+        
+            // 요청 전송
+            //url = '/detectLangs';
+            //xhr.open('POST',url); 이므로 send하면 해당 url server로 send!
+            xhr.send(ObjectToJson);
         }
-    };
-
-    // 요청준비
-    xhr.open('POST',url);
-
-    // Node 서버에 보낼 객체 형태의 JSON 데이터
-    const requestData = {
-        text, // 프로퍼티이름이랑 변수 이름 같으면 하나로 써줘도 됨. == text:text;
-        targetLanguage,
-    };
-    
-    xhr.setRequestHeader('Content-type','application/json');
-    
-    //JSON 의 타입은?
-    const ObjectToJson = JSON.stringify(requestData);
-
-
-    // 요청 전송
-    //url = '/detectLangs';
-    //xhr.open('POST',url); 이므로 send하면 해당 url server로 send!
-    xhr.send(ObjectToJson);
-
+    },2000); //2초 후에 콜백함수 호출
 });
