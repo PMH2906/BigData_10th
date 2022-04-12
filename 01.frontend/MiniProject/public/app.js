@@ -29,17 +29,16 @@ targetSelect.addEventListener('change', () => {
 let debouncer; // debounce 변수 선언
 sourceTextArea.addEventListener('input', (event) => {
 
+    // 디바운싱 
     if(debouncer){ // deboucer에 TimeID값이 있으면(카운팅 하고 있다는 의미)
-        clearTimeout(debouncer) // 현재 타이머 카운트 초기화
+        clearTimeout(debouncer); // 현재 타이머 카운트 초기화
     }
 
-    deboubcer = setTimeout(()=>{
+    debouncer = setTimeout(()=>{
         const text = event.target.value;
         console.log(text);
     
-        console.log(event);
-    
-        if(text){
+        if(text){ // text변수에 값이 있으면 true, 없으면 false
     
             //비동기 요청을 도와주는 Web API 객체 생성
             const xhr = new XMLHttpRequest();

@@ -2,10 +2,15 @@
 const { query } = require('express');
 const express = require('express');//express 패키지 import
 
-const app = express();
+const app = express(); // express 생성
 
-const clientId = 'zKfcHiTw4W3XIpc9hcJ7';
-const clientSecret = 'u9PlpnIubz';
+// API key를 별도로 관리 : dot(.)env 활용 .env라는 파일에 key를 보관하고, dotenv가 .env 파일을 활용해서,
+// process.env 객체에 포함시켜줌
+const dotenv = require('dotenv');
+dotenv.config();
+
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
 
 
 const request = require('request'); // request 패키지 import
