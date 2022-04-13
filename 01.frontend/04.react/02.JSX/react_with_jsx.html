@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- React API 사용 -->
+    <!-- React API -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- React Dom API -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 렌더링 되는 부분 -->
+    </div>
+
+    <!-- babel에서 내부적으로 React.createElement()를 사용해서 요소 생성해줌-->
+    <script type="text/babel">
+        // 1.Babel CDN을 활용한 JSX 문법
+        // 커스텀 컴포넌트
+
+        // 1. Babel CDN을 활용하여 JSX 적용
+        // Babel로 적용된 모습.
+        // https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=AQ0JQUwQwYwFwCIHkCyA6AThAdgEwhgBQBQoZwAPLgJYBuAfKeWRQK4A2jzzFAFgEz0AKr2rYA5gGdgMKHGntqAawgUA9AK7cWi-gGEA9gDMjEVWt1NtICrqHR1l66FvV6KauyWO3V7uo4tHjUaBgAaPzJcAxhWAFscODQAR1YCAE8AZQh2CHgDIgAiAGIMAwM4QoBKSOAqgG4gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.17.6&externalPlugins=&assumptions=%7B%7D
+        
+        // render() 내에 html elements가 직접 적용되어 있어서 가독성이 떨어짐.
+        // ReactDOM.render(
+        //   <div>
+        //     <ul>
+        //       <h2>Things cats like</h2>
+        //       <li>Coffee</li>
+        //       <li>Tea</li>
+        //       <li>Milk</li>
+        //     </ul>
+        //   </div>,
+        //   document.getElementById("root")
+        // );
+
+
+        // 2. JSX Code를 함수 컴포넌트 방식으로 분리
+
+        let Coffee = 'Starbucks'// {}를 활용하여 JS 코드 작성 가능
+
+        const Component = props =>{
+            // {변수명} : 중괄호({}) 쓰면 JS코드 작성가능
+            return(
+                <ul>
+                    <h2>Things cats like</h2>
+                    <li>{Coffee}</li>
+                    <li>Tea</li>
+                    <li>Milk</li>
+                </ul>
+            );
+        };
+
+        // <>로 감싸서 하나의 컴포넌트(커스텀 태그)형태로 저장
+        // 커스텀 컴포넌트를 태그형태로 쓰면 사용가능
+        ReactDOM.render(<Component/>,document.getElementById('root'));
+    </script>
+</body>
+</html>

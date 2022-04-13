@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- React API 사용 -->
+    <!-- React API -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- React Dom API -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const Component = props =>{ // 가독성이 상당히 떨어진다.
+            return React.createElement('ul',null,
+                        React.createElement('h2',null,'Things cats like'),
+                        React.createElement('li',null,'Coffee'),
+                        React.createElement('li',null,'Tea'),
+                        React.createElement('li',null,'Milk'));
+        }
+
+        ReactDOM.render(React.createElement(Component,null,null),document.getElementById('root'));
+        
+    </script>
+</body>
+
+</html>
