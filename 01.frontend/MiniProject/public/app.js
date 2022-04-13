@@ -44,10 +44,13 @@ sourceTextArea.addEventListener('input', (event) => {
             const xhr = new XMLHttpRequest();
         
             //node 서버의 특정 url 주소
+            //server.js의 32번째 줄로 들어감!
             const url = '/detectLangs';
         
             xhr.onreadystatechange = ()=> {
                 if(xhr.readyState === 4 && xhr.status === 200){
+                    //server.js 108번째 줄에서 데이터를 send하여, 데이터를 받아옴.
+
                     // console.log(xhr.responseText);
                     const responseData = JSON.parse(xhr.responseText);
         
