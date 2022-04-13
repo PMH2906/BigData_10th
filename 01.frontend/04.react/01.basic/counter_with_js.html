@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 앞으로 우리가 작성할 react code(app)는 이 <div> 내부에 렌더링 됨 -->
+    <div id="root"></div>
+
+    <!-- 해당 element 태그들를 realdom이라고 함 -->
+    <button>Increase</button>
+    <script>
+        // 1. Vannilla JS
+        
+        // getElementsByTagName, getElementsByClassName는 HTML 배열로 가져오므로 querySelector씀
+        // const button = document.querySelector('button');
+        // const root = document.getElementById('root');
+        
+        // let count = 0;
+        // root.innerHTML=`<p>0</p>`; // root에 p 태그 0으로 초기화하면서 추가함
+        
+        // button.addEventListener('click',()=>{
+        //     //id가 root인 엘리먼트 내부에 <p>count</p>를 계속 덮어씌우도록(숫자를 갱신시키면서)
+        //     root.innerHTML =`<p>${++count}</p>`
+        // });
+
+        
+        //2. innerHTML, count변수, <p>count</p>를 갱신하는 코드를 함수로 작성
+        //   ->increase 버튼이 클릭되었을 때마다 특정 함수가 호출되면서 <p>count</p>를 갱신
+        
+        // Object 선언 및 할당
+        const component={
+            count:0,
+            updateElement(){
+                // custom element
+                return `<p>${this.count}</p>`;
+            }
+        };
+        // console.log(component.updateElement());
+        // console.log(component.count);
+
+        // 선언한 Object의 함수를 사용하여 HTML을 수정하는 함수
+        // <p>count</p>를 갱신함.
+        function render(component, element){
+            element.innerHTML = component.updateElement();
+        }
+        const button = document.querySelector('button');
+        const rootElement = document.getElementById('root');
+        
+        // 함수 사용하여 HTML의 p태그 추가하여 0으로 초기화
+        render(component,rootElement);
+
+        // 버튼 클릭하면 Object의 count property를 1씩 증가시킨 후
+        // render 함수 사용하여 HTML의 p태그 갱신함
+        button.addEventListener('click',()=>{
+            // 특정 이벤트(button click)에 의해 component값의 상태(state)가 바뀌면 바뀐 상태값으로 다시 rendering함
+            component.count+=1;
+            render(component,rootElement);
+        });
+
+    </script>
+</body>
+</html>
