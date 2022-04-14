@@ -20,13 +20,13 @@
         function Avatar(props){
             return (
                 <img className="Avatar"
-                src={props.user.avatatarUrl}
+                src={props.user.avatarUrl}
                 alt={props.user.name}
                 />
             );
         }
 
-        // UserInfo 컴포넌트 생서
+        // UserInfo 컴포넌트 생성
         function UserInfo(props){
             return(
                 <div className="UserInfo">
@@ -59,7 +59,7 @@
             author1:{
                 // comment.author는 밑의 두 줄만 들어감.
                 name:'Hello Kitty',
-                avatatarUrl:'http://placekitten.com/g/64/64',
+                avatarUrl:'http://placekitten.com/g/64/64',
             },
             text:'I home you enjoy learning React!',
             date:new Date(),

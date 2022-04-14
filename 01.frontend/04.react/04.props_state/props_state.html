@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>    
+
+    <script type="text/babel">
+        // 1.props
+        // Component라는 이름의 컴포넌트를 화살표 함수로 작성
+        const Component = (props)=>{
+            return(
+                <div>
+                    <h1>It's a {props.value}</h1>
+                </div>
+            );
+        }
+        
+        //  별로도 지정한 props가 없을 때 defaultProps를 지정하려면
+        Component.defaultProps={
+            value:'default value'
+        }
+        // ReactDOM.render(<Component/>,document.getElementById('root'));
+
+        // 2. before state
+
+        // let count = 0;
+
+        // // BeforeState 컴포넌트 생성
+        // const BeforeState=props=>{
+        //     // / clickHandler : click 이벤트를 처리한 핸들러 함수(화살표 함수)
+        //     const clickHandler = () => {
+        //         count++;
+        //         console.log(count);
+        //     };
+        //     // onClick 인라인 스타일
+        //     return (
+        //         <div>
+        //             <p>You clicked {count} times</p>
+        //             <button onClick={clickHandler}>Click me!</button>
+        //         </div>
+        //     );
+        // }
+        // ReactDOM.render(<BeforeState/>,document.getElementById('root'));
+        
+        // 3. state
+        // React의 프로퍼티함수 중 useState를 {}를 사용하여 객체화해서 가져옴
+        const {useState} = React;
+        console.log(useState);
+
+        const Example = props => {
+            // count 값을 컴포넌트 내부에서 관리
+            // 이러한 count값을 하나의 state라고 함
+
+            // const[state, setState]=useState(initialState);
+            // state : Component에서 관리하는 값
+            // setState : state값을 변경할 수 있는 setter함수
+            // initialState:초기상태값, 초기값
+            const [count, setCount] = useState(0);
+            console.log(count); // 초기값 및 변경된 값(둘 다 활용)
+            console.log(setCount); // count값을 변경할 수 있도록 도와주는 함수
+            // setCount()를 거치지 않고서는 count값 수정 불가
+
+            const clickHandler=()=>{ // 클릭 이벤트 핸들러
+                setCount(count+1); // state(여기서는 count)값을 수정하기 위해 setCount에 삽입. 삽입된후 state값인 count값은 수정됨
+                // state(여기에서는 count의미)가 변경되면 React는 변경을 감지하고
+                // ReactDOM에 새로 렌더링 시킴
+            };
+            return (
+                <div>
+                    <p>You clicked {count} times</p>
+                    <button onClick={clickHandler}>Click me!</button>
+                </div>
+                );
+            };
+                
+             ReactDOM.render(<Example/>,document.getElementById('root'));
+        </script>
+</body>
+</html>

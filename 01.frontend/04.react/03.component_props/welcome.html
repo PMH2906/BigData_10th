@@ -18,12 +18,14 @@
     <script type="text/babel">
         // Welcome 컴포넌트
         function Welcome(props){
+            console.log('Welcome Component called');
             return <h1>Hello,{props.name}</h1>;
         }
 
         // App이라는 함수형 컴포넌트 작성
         // name만 바꾸고 Welcome이라는 컴포넌트를 재사용하고 있음
         function App(){
+            console.log('App Component called');
             return(
                 <div>
                     <Welcome name="Sara"/>
