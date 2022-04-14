@@ -10,6 +10,7 @@
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <!-- React Dom API -->
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
@@ -17,7 +18,7 @@
         <!-- 렌더링 되는 부분 -->
     </div>
 
-    <!-- babel에서 내부적으로 React.createElement()를 사용해서 요소 생성해줌-->
+    <!-- babel에서 내부적으로 React.createElement()로 자동으로 컴파일 해줌->
     <script type="text/babel">
         // 1.Babel CDN을 활용한 JSX 문법
         // 커스텀 컴포넌트
@@ -46,6 +47,7 @@
 
         const Component = props =>{
             // {변수명} : 중괄호({}) 쓰면 JS코드 작성가능
+            // JSX : JS XML
             return(
                 <ul>
                     <h2>Things cats like</h2>

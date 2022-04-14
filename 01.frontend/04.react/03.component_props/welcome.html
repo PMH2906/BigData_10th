@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- React API 사용 -->
+    <!-- React API -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- React Dom API -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // Welcome 컴포넌트
+        function Welcome(props){
+            return <h1>Hello,{props.name}</h1>;
+        }
+
+        // App이라는 함수형 컴포넌트 작성
+        // name만 바꾸고 Welcome이라는 컴포넌트를 재사용하고 있음
+        function App(){
+            return(
+                <div>
+                    <Welcome name="Sara"/>
+                    <Welcome name="Cahal"/>
+                    <Welcome name="Edite"/>
+                </div>
+            )
+        }
+
+        // const element=<Welcome name="Sara"/>;
+        ReactDOM.render(<App/>,document.getElementById('root'));
+    </script>
+</body>
+</html>
