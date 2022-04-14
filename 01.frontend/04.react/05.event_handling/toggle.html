@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // 1. useState활용
+        // 2. 자바스크립트 표현식{}
+        // 3. 클릭이벤스
+        // 4. 조건문
+        
+        const {useState} = React;
+
+        const Toggle = (props) =>{
+            const [state, setState] = useState(false);
+
+            const clickHandler=()=>{
+                setState(!state);
+                // state === 'on' ?  setState('off'): setState('on');
+            };
+            return (
+                <>
+                    <img src = {state ? "./pic_bulbon.gif":"./pic_bulboff.gif"} alt="off"/>
+                    <button onClick={clickHandler}>{state?'OFF':'ON'}</button>
+                </>
+            );
+            
+        };
+        ReactDOM.render(<Toggle />,document.getElementById('root'));
+        </script>
+</body>
+</html>
