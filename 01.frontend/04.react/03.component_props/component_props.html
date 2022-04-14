@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>    
+
+    <script type="text/babel">
+        function formatDate(date){
+            return date.toLocaleDateString();
+        }
+        // Avatar 컴포넌트
+        function Avatar(props){
+            return (
+                <img className="Avatar"
+                src={props.user.avatatarUrl}
+                alt={props.user.name}
+                />
+            );
+        }
+
+        // UserInfo 컴포넌트 생서
+        function UserInfo(props){
+            return(
+                <div className="UserInfo">
+                    <Avatar user={props.author3}/>    
+                    <div className="UserInfo-name">{props.author3.name}</div>
+                </div>
+            );
+        }
+
+        // Component컴포넌트
+        function Component(props){
+            return(
+                // <div className="Component">
+                //     <div className="UserInfo">
+                //         <Avatar user={props.author}/>    
+                //     </div>
+                //     <div className="UserInfo-name">{props.author.name}</div>
+                //     <div className="Comment-text">{props.text}</div>
+                //     <div className="Comment-date">{formatDate(props.date)}</div>
+                // </div>
+                <div className="Component">
+                    <UserInfo author3={props.author2}/>
+                    <div className="Comment-text">{props.text}</div>
+                    <div className="Comment-date">{formatDate(props.date)}</div>
+                </div>
+            );
+        }
+
+        const comment = {
+            author1:{
+                // comment.author는 밑의 두 줄만 들어감.
+                name:'Hello Kitty',
+                avatatarUrl:'http://placekitten.com/g/64/64',
+            },
+            text:'I home you enjoy learning React!',
+            date:new Date(),
+        };
+
+        // 순수 JS객체(Object)
+        ReactDOM.render(<Component 
+            author2={comment.author1} 
+            text={comment.text} 
+            date={comment.date}/>,
+            document.getElementById("root"));
+    </script>
+</body>
+</html>
