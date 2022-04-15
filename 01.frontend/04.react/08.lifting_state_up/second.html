@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>    
+
+    <script type="text/babel">
+        const {useState} = React
+
+        // 섭씨 화씨를 구분해주는 일반 객체 추가
+        const scaleNames = {
+            c: '섭씨',
+            f: '화씨',
+        };
+
+        // 온도를 입력할 수 있는 input 엘리먼트를 보유, 그 값을 temperature라고 하는 state에 저장
+        const Caculator = props => {
+
+            // Caculator컴포넌트의 state 객체는 property로 temperature,scale있음 
+            const [state, setState] = useState({temperature:'',scale:''});
+            
+            const temperature = state.temperature;
+
+            const changeTemperatureHandler = (inputValue) => {
+                // console.log(event.target.value); // 이벤트 바뀔때마다 입력된 문자 출력
+                setState({temperature:inputValue});
+                // console.log(state.temperature);
+            }
+            
+            return (
+                <>
+                    <TemperatureInput scale='c' onTemperatureChange={changeTemperatureHandler}/>
+                    <TemperatureInput scale='f' onTemperatureChange={changeTemperatureHandler}/>
+                    <BoilingVerdict celsius = {temperature}/>
+                </>            
+            );
+        };
+
+        // 사용자에게 온도 값을 입력받는 컴포넌트, Calculator 에서 분리
+        const TemperatureInput = props => {
+            const inputChangeHandler = (event) =>{
+                // inputValue를 Calculate 상위 컴포넌트로 올려서 Calculate의 state.temperature값을 inputValue로 변경
+                // 따라서 Calculate 상위 컴포넌트의 changeTemperatureHandler함수를 내려줌.
+                //  Calculate 상위 컴포넌트의 changeTemperatureHandler함수는 state값을 변경시켜주는 setState를 사용하므로
+                const inputValue = event.target.value;
+                // 하위 컴포넌트에서 Calculate 상위 컴포넌트로 inputValue를 위로 올려줌
+                props.onTemperatureChange(inputValue);
+            };
+            return(
+                <fieldset>
+                    <legend>{scaleNames[props.scale]}온도를 입력하세요 : </legend>
+                    <input type="text" onChange={inputChangeHandler}/>
+                </fieldset>
+            );
+        }
+        // 입력한 값이 끓는점 온도인지의 여부에 따라 출력문을 분기하는 컴포넌트
+        const BoilingVerdict = props => {
+            // celsius : 섭씨온도
+            const celsius = props.celsius;
+            return celsius >= 100 ? <p>물이 끓는점입니다.</p> : <p>끓는점이 아직 아닙니다.</p>
+        }
+        ReactDOM.render(<Caculator/>, document.getElementById('root'));
+        </script>
+</body>
+</html>

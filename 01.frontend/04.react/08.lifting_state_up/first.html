@@ -13,7 +13,33 @@
     <div id="root"></div>    
 
     <script type="text/babel">
-        
-    </script>
+        const {useState} = React
+        // 온도를 입력할 수 있는 input 엘리먼트를 보유, 그 값을 temperature라고 하는 state에 저장
+        const Caculator = props => {
+
+            const [state, setState] = useState({temperature:''});
+            
+            const changeHandler = (event) => {
+                // console.log(event.target.value); // 이벤트 바뀔때마다 입력된 문자 출력
+                setState({temperature:event.target.value});
+                // console.log(state);
+            }
+            
+            return (
+                <fieldset>
+                    <legend>썹씨 온도를 입력하세요 : </legend>
+                    <input type="text" onChange={changeHandler}/>
+                    <BoilingVerdict celsius = {state.temperature}/>
+                </fieldset>
+            )
+        }
+        // 입력한 값이 끓는점 온도인지의 여부에 따라 출력문을 분기하는 컴포넌트
+        const BoilingVerdict = props => {
+            // celsius : 섭씨온도
+            const celsius = props.celsius;
+            return celsius >= 100 ? <p>물이 끓는점입니다.</p> : <p>끓는점이 아직 아닙니다.</p>
+        }
+        ReactDOM.render(<Caculator/>, document.getElementById('root'));
+        </script>
 </body>
 </html>
