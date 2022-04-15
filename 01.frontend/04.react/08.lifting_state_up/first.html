@@ -13,23 +13,7 @@
     <div id="root"></div>    
 
     <script type="text/babel">
-        // 1.map() basic
-        const numbers = [1,2,3,4,5];
-        // console.log(Array.isArray(numbers));
-
-        // numbers의 배열 요소에 *2
-        console.log(numbers.map(number => number *2));
         
-        // 2. map() in react
-        const NumberList = props => {
-            const numbers = props.numbers;
-
-            const listItems =numbers.map(number => <li>{number}</li>);
-
-            return <ul>{listItems}</ul>;
-        }
-
-        ReactDOM.render(<NumberList numbers={numbers}/>, document.getElementById('root'));
     </script>
 </body>
 </html>
