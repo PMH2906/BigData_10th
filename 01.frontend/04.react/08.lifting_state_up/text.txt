@@ -1,0 +1,36 @@
+<just 외부 함수>
+-toFahrenheit : 화씨로 변환 : 
+-toCelsius : 썹씨로 변환
+-tryConvert(온도값, 두 개의 함수 중 하나) : 위 두 함수를 사용하여 온도 계산하여 반환
+
+
+최상위 컴포넌트
+<Caculator>
+- state {
+    temperature:
+    scale:
+}
+
+-fahrenheit, celsius을 tryConvert(온도값, 두 개의 함수 중 하나)를 사용하여 조건에 따라 변환해줌
+
+-changeTemperatureHandler 함수
+ 매개변수
+ inputValue:온도값
+ scale:'c' or 'f'
+ 역할
+ state의 각 property를 변환해줌
+
+-return : <TemperatureInput><BoilingVerdict>컴포넌트
+
+하위 컴포넌트
+<TemperatureInput>
+-inputChangeHandler화살표 함수
+역할:input의 text가 달라질 때, text value와 섭씨or 화씨 input 태그인지 알려주는 scale값을 최상위 컴포넌트로 전달
+하여 최상위 컴포넌트의 state값을 변경해줌
+
+
+-return : <legend><input onChange기능> 태그 
+
+
+<BoilingVerdict>
+return 화씨의 온도에 조건에 맞는 p태그 출력

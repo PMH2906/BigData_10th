@@ -21,6 +21,30 @@
             f: '화씨',
         };
 
+        function toFahrenheit(celsius){
+            return (celsius*9/5)+32;
+        }
+
+        function toCelsius(fahrenheit){
+            return (fahrenheit-32)*5/9;
+        }
+        
+        // 실제 온도 변화를 수행 및 문자열 값에 대한 유효성 처리 함수
+        function tryConvert(temperature, convert){
+            // input값을 실수로 변경
+            const input = parseFloat(temperature);
+
+            //만약 사용자가 숫자가 아닌 문자를 입력하였을 경우
+            if(Number.isNaN(input)){
+                return '';
+            } 
+
+            // 소수점값을 rounding 처리 후 반환
+            const output = convert(input);
+            const rounded = Math.round(output*1000)/1000;
+            return rounded.toString();
+        }
+
         // 온도를 입력할 수 있는 input 엘리먼트를 보유, 그 값을 temperature라고 하는 state에 저장
         const Caculator = props => {
 
@@ -28,17 +52,23 @@
             const [state, setState] = useState({temperature:'',scale:''});
             
             const temperature = state.temperature;
+            const scale = state.scale;
 
-            const changeTemperatureHandler = (inputValue) => {
+            //props로 온도를 내려보내기 전에 변환을 먼저 수행
+            const fahrenheit = scale === 'c'? tryConvert(temperature,toFahrenheit):temperature;
+            // console.log(fahrenheit);
+            const celsius = scale === 'f'? tryConvert(temperature,toCelsius):temperature;
+            const changeTemperatureHandler = (inputValue, scale) => {
                 // console.log(event.target.value); // 이벤트 바뀔때마다 입력된 문자 출력
-                setState({temperature:inputValue});
-                // console.log(state.temperature);
+                setState({temperature:inputValue,scale:scale});
+                // console.log(state);
+                
             }
             
             return (
                 <>
-                    <TemperatureInput scale='c' onTemperatureChange={changeTemperatureHandler}/>
-                    <TemperatureInput scale='f' onTemperatureChange={changeTemperatureHandler}/>
+                    <TemperatureInput scale='c' temperature={celsius} onTemperatureChange={changeTemperatureHandler}/>
+                    <TemperatureInput scale='f' temperature={fahrenheit} onTemperatureChange={changeTemperatureHandler}/>
                     <BoilingVerdict celsius = {temperature}/>
                 </>            
             );
@@ -51,13 +81,14 @@
                 // 따라서 Calculate 상위 컴포넌트의 changeTemperatureHandler함수를 내려줌.
                 //  Calculate 상위 컴포넌트의 changeTemperatureHandler함수는 state값을 변경시켜주는 setState를 사용하므로
                 const inputValue = event.target.value;
+                const scale = props.scale
                 // 하위 컴포넌트에서 Calculate 상위 컴포넌트로 inputValue를 위로 올려줌
-                props.onTemperatureChange(inputValue);
+                props.onTemperatureChange(inputValue, scale);
             };
             return(
                 <fieldset>
                     <legend>{scaleNames[props.scale]}온도를 입력하세요 : </legend>
-                    <input type="text" onChange={inputChangeHandler}/>
+                    <input type="text" onChange={inputChangeHandler} value={props.temperature} />
                 </fieldset>
             );
         }
