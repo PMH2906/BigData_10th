@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>    
+
+    <script type="text/babel">
+        // const [a, b] = [1, 2]; // array 구조 분해 할당
+        const {useState} = React // useState hook import. 객체 구조 분해 할당
+
+        // 로그인 상태일 때 사용할 컴포넌트(화살표함수)
+        const UserCreating = (props)=><h1>Welcome back!</h1>;
+
+        // 비로그인 상태일 때 사용할 컴포넌트
+        const GuestGreeting = props =><h1>Please sign up.</h1>;
+
+        const LoginButton = props => <button onClick={props.onClick}>Login</button>
+
+        const LogoutButton = props => <button onClick={props.onClick}>Logout</button>
+
+        // Greeting : 로그인/비로그인 상태에 따른 인사 메시지를 조건에 따라 렌더링을 담당하는 컴포넌트
+        const Greeting = props => props.isLoggedIn ? <UserCreating/> : <GuestGreeting/>;
+
+        // Loging 메시지 + Login 버튼을 포함하는 상위 컴포넌트, 로그인/로그아웃 처리 담당
+        const LoginControl = props =>{
+            // state를 활용해서 로그인/로그아웃 여부를 결정
+            const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+            const loginButtonClickHandler = () => setIsLoggedIn(!isLoggedIn);
+
+            // state를 props로 활용
+            // Greeting 컴포넌트에게 state를 내려줌
+            return(
+                <>
+                <Greeting isLoggedIn={isLoggedIn}/>
+                {isLoggedIn? <LogoutButton onClick={loginButtonClickHandler}/> : <LoginButton onClick={loginButtonClickHandler}/>}
+                </>
+            );
+        };
+
+        ReactDOM.render(<LoginControl/>, document.getElementById('root'));
+    </script>
+</body>
+</html>
