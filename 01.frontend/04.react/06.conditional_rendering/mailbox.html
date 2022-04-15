@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>    
+
+    <script type="text/babel">
+        const messages = ['React', 'RE:React','Re:Re:React'];
+
+        const Mailebox =props => {
+            const unreadMessages = props.unreadMessages;
+            
+
+            // unreadMessages.length>0 : 첫번째 조건식
+            // <h2>You have {unreadMessages.length} unread message.</h2> : 두번째 조건식
+            // 첫번째 조건식이 false이면 두번째 조건식 연산도 하기 전에 실행하지 안됨
+            // 두번째 조건식이 true이면 두번째 조건식 실행
+            return(
+                <>
+                    <h1>Hello</h1>
+                    {unreadMessages.length>0 && <h2>You have {unreadMessages.length} unread message.</h2>}
+                </>
+            )
+        };
+        React.render(<Mailbox unreadMessages={messages}/>,document.getElementById('root'));
+    </script>
+</body>
+</html>
+
