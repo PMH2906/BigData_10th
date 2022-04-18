@@ -1,0 +1,79 @@
+// rafce : 단축키
+import React, { useState } from 'react'
+import Book from './Book/Book';
+import Books from './Books';
+import classes from './BooksList.module.css';
+
+const BOOKS = [
+  {
+    id: "book1",
+    name: "THE OLD MAN AND THE SEA",
+    description:
+      "A story of Santiago, an aging Cuban fisherman who struggles with a giant marlin far out in the Gulf Stream off the coast of Cuba",
+    author: "Ernest Hemingway",
+    price: 10.57,
+  },
+  {
+    id: "book2",
+    name: "THE GREAT GATSBY",
+    description:
+      "Set in the Jazz Age on Long Island, near New York City, the novel depicts first-person narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.",
+    author: "F.Scott Fitzgerald",
+    price: 12.97,
+  },
+  {
+    id: "book3",
+    name: "THE LITTLE PRINCE",
+    description:
+      "A young prince who visits various planets in space, including Earth, and addresses themes of loneliness, friendship, love, and loss.",
+    author: "Antoine de Saint-Exupery",
+    price: 15.55,
+  },
+  {
+    id: "book4",
+    name: "THE MYTH OF SISYPHUS",
+    description:
+      'Camus introduces his philosophy of the absurd. The absurd lies in the juxtaposition between the fundamental human need to attribute meaning to life and the "unreasonable silence" of the universe in response.',
+    author: "Alber Camus",
+    price: 16.92,
+  },
+];
+
+//Books의 각 객체를 console.log()를 활용해서 출력될 수 있도록 리스팅
+
+// BOOKS.map(book=>console.log(book));
+
+const BooksList = () => {
+  const [books, setBooks] = useState(BOOKS);
+
+  console.log(books);
+  // 1.DUMMY BOOKS 확인용
+  // const BooksList = books.map(book=>(
+  //   // li태그들은 각각 고유한 key값을 가져야 함
+  //     <li key={book.id}>
+  //         <h3>{book.name}</h3>
+  //         <div>{book.description}</div>
+  //         <div>{book.author}</div>
+  //     </li>
+  // ));
+
+  // 2. 별도의 <li> 컴포넌트로 분리
+  const booksList = books.map(book => (
+    // key, name, description, price와 같은 이름으로 props를 내려줌
+    <Book
+      key={book.id}
+      name={book.name}
+      description={book.description}
+      price={book.price}
+    />
+  ));
+  return (
+    <section className={classes.books}>
+      <ul>
+        {booksList}
+      </ul>
+    </section>
+  );
+}
+
+export default BooksList
