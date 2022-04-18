@@ -1,7 +1,7 @@
 // rafce : 단축키
 import React, { useState } from 'react'
+import Card from '../Commons/Card';
 import Book from './Book/Book';
-import Books from './Books';
 import classes from './BooksList.module.css';
 
 const BOOKS = [
@@ -69,9 +69,9 @@ const BooksList = () => {
   ));
   return (
     <section className={classes.books}>
-      <ul>
-        {booksList}
-      </ul>
+        <Card>
+          <ul>{booksList}</ul>
+        </Card>
     </section>
   );
 }

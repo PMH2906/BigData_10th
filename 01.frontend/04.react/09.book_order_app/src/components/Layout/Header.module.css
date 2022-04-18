@@ -1,4 +1,12 @@
 .header{
+    /* position:fixed; */
+
+    width : 100%;
+    padding : 0 10%;
+
     background-color: #0a3d62;
     color: white;
+
+    display: flex;
+    justify-content: space-between;
 }

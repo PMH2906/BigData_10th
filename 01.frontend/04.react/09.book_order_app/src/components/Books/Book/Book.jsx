@@ -1,5 +1,6 @@
 // rafce
 import React from 'react'
+import AddBookForm from './AddBookForm'
 import classes from './Book.module.css'
 
 const Book = (props) => {
@@ -11,6 +12,7 @@ const Book = (props) => {
             <div className={classes.description}>{props.description}</div>
             <div className={classes.price}>{props.price}</div>
           </div>
+          <div><AddBookForm/></div>
       </li>
   )
 }
