@@ -1,6 +1,6 @@
 .header{
     /* position:fixed; */
-
+    /* fixed를 하면 header가 book data list 를 그냥 덮어버림 */
     width : 100%;
     padding : 0 10%;
 

@@ -1,5 +1,6 @@
 // Header.js에서 Header로 export된 값(함수, 변수)를 가져오겠다. 사용하겠다.
 import Books from './components/Books/Books';
+import Cart from './components/Cart/Cart';
 import Header from './components/Layout/Header'
 import Main from './components/Layout/Main';
 
@@ -7,9 +8,10 @@ import Main from './components/Layout/Main';
 function App() {
   return (
     <>
-      <Header/>
+      <Cart />
+      <Header />
       <Main>
-        <Books/>
+        <Books />
       </Main>
     </>
   );
