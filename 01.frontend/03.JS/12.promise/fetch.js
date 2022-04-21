@@ -11,13 +11,43 @@
 // fetch()의 첫번째 인수로 HTTP요청을 전송할 URL을 작성하면 기본적으로 GET요청을 수행
 // default값이 GET이라는 의미
 
-const url = 'https://jsonplaceholder.typicode.com/posts/1';
+const url = 'https://jsonplaceholder.typicode.com/todos';
 // const promise = fetch(url)
 // .then(response=>console.log(response));
 // console.log(promise); // Promise 객체
 
 
 fetch(url)
-.then(response=>response.json()) // .json() : Response 객체에서 HTTP body(몸체)를 취득 후, Json데이터를 Object로 변환(객체화, 역직렬화)
-.then(json=>console.log(json)); // 이 메서드에서는 json형의 데이터 출력
+.then(response=>console.log(response.json())) // .json() : Response 객체에서 HTTP body(몸체)를 취득 후, Json데이터를 Object로 변환(객체화, 역직렬화)
+.then(json=>console.log(json)) // 이 메서드에서는 json형의 데이터 출력
 
+
+
+
+fetch('https://jsonplaceholder.typicode.com/todos')
+.then(response=>console.log(response.json())) // .json() : Response 객체에서 HTTP body(몸체)를 취득 후, Json데이터를 Object로 변환(객체화, 역직렬화)
+.then(json=>console.log(json)) // 이 메서드에서는 json형의 데이터 출력
+.then(responseData=>{
+    console.log(responseData);
+    // const newsData=[];
+    // for (const )
+    
+})
+
+// fetch('https://book-order-3627f-default-rtdb.firebaseio.com/books.json')
+// .then(response=>response.json())
+// .then(responseData=>{
+//   const booksData = [];
+//   for(const key in responseData){
+//     // console.log(key); // book1
+//     const book = {
+//       id:key,
+//       name:responseData[key].name,
+//       description:responseData[key].description,
+//       author:responseData[key].author,
+//       price:responseData[key].price
+//     };
+//     booksData.push(book);
+//     console.log(booksData);
+//   }
+//   setBooks(booksData);
