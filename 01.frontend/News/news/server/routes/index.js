@@ -14,22 +14,11 @@ const router = express.Router();
 //     res.json()
 
 // });
+// const dotenv = require('dotenv');
+// dotenv.config();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-const client_id = '5pJTLeBERA6DFr9RJ25R';
-const client_secret = 'MwMB9yxCde';
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
 
 router.get('/', function (req, res) {
     var api_url = 'https://openapi.naver.com/v1/search/news?query=' + encodeURI('코인'); // json 결과
