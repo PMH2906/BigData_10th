@@ -17,11 +17,14 @@ const router = express.Router();
 // const dotenv = require('dotenv');
 // dotenv.config();
 
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
+// const clientId = process.env.CLIENT_ID;
+// const clientSecret = process.env.CLIENT_SECRET;
+
+client_id = '5pJTLeBERA6DFr9RJ25R';
+client_secret = 'MwMB9yxCde';
 
 router.get('/', function (req, res) {
-    var api_url = 'https://openapi.naver.com/v1/search/news?query=' + encodeURI('코인'); // json 결과
+    var api_url = 'https://openapi.naver.com/v1/search/news?query=' + encodeURI('it'); // json 결과
  //   var api_url = 'https://openapi.naver.com/v1/search/blog.xml?query=' + encodeURI(req.query.query); // xml 결과
     var request = require('request');
     var options = {
