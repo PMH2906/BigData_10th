@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+:root {
+  --button-color: black;
+  --button-bg-color: white;
+  --button-hover-bg-color: rgb(164, 164, 164);
+  /* --button-hover-color: white; */
+}
+
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  background: var(--button-bg-color);
+  color: var(--button-color);
+  
+  margin: 1vh;
+  padding: 1vh 2vh;
+  /* padding: 0.5rem 1rem; */
+  
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  /* font-weight: 400px; */
+  text-align: center;
+  text-decoration: none;
+  
+  border: none;
+  border-radius: 50px;
+  
+  display: inline-block;
+  width: auto;
+  
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.6);
+  
+  cursor: pointer;
+  
+  transition: 0.5s;
+}
+.button:active,
+.button:hover,
+.button:focus {
+  background: var(--button-hover-bg-color);
+  outline: 0;
+}
+.button:disabled {
+  opacity: 0.5;
+}

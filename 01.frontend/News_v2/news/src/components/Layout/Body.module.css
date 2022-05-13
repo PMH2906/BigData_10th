@@ -1,0 +1,9 @@
+.body{
+    margin:0px;
+    padding:0px;
+    background-color: rgb(245, 245, 245);
+    /* height:max-content; */
+    display: flex;
+    justify-content: center;
+    
+}

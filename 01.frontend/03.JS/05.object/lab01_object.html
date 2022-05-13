@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object 선언
+        // 리터럴
+        let obj1 = {name:'js',age:18};
+        console.log(obj1);
+
+        let obj2 = {};
+        obj2.name = 'js2';
+        console.log(obj2);
+        console.log(obj2.name);
+
+        // 생성자
+        let obj3 = new Object();
+        console.log(obj3);
+        obj3.color = 'pink';
+        console.log(obj3.color);
+
+        // 사용자 정의 함수
+        // 객체 : Customer
+        // 속성 : id
+        // 기능 : 값을 돌려주는 기능(getXXX)
+        //        값을 새롭게 하는 기능(setXXX)
+        // 
+        function Customer(id){
+            this.id = id;
+
+            this.getId = function(){
+                return this.id;
+            }
+            this.setId = function(newId){
+                //this.id = newId;
+                if(newId == 'js4'){
+                    this.id = newId;
+                }
+            }
+        }
+        let obj4 = new Customer('js');
+        console.log(obj4);
+        console.log(obj4.id);
+        console.log(obj4.getId());
+        obj4.setId('js4'); // obj4.id = 'js4';
+        console.log(obj4.id);
+
+        obj4.getGrade = function(){
+                console.log('등급출력');
+        }
+
+        obj4.getGrade();
+        console.log(obj4['id']);
+
+        delete obj4.id; // 변수 삭제
+        console.log(obj4.id);
+
+        delete obj4.getId; // 함수 삭제시 () 안 써줌
+        // console.log(obj4.getId()); //삭제되어 error남
+
+        function Student(name, age){
+            this.name = name
+            this.age = age
+
+            this.getName=function(){
+                return this.name;
+            }
+            this.getAge=function(){
+                return this.age;
+            }
+            this.setInfo=function(newName, newAge){
+                this.name = newName;
+                this.age = newAge;
+            }
+        }
+        let std1 = new Student('Mihee','20');
+        console.log(std1.getName(),std1.getAge());
+    </script>
+</body>
+</html>

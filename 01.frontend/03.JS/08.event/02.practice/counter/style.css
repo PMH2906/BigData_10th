@@ -1,0 +1,27 @@
+body{
+    margin : 0;
+}
+main{
+    /* 가로축 중심 중앙 */
+    display: flex;
+    justify-content: center;
+    /* 세로축 중심 중앙 */
+    height : 60vh; /*viewport height : 각자의 모니터 크기 기준의 퍼센트*/
+    align-items: center; /*main content 만큼의 중앙*/
+}
+.container{
+    text-align: center;
+}
+.container h1, p{
+    font-size: 3rem;
+}
+.btn{
+    border: 1px dashed black;
+    background-color: transparent;
+    padding:10px;
+    margin: 5px;
+}
+.count_result {
+
+    color: grey;
+}

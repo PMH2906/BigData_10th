@@ -1,0 +1,9 @@
+.header{
+    background-color:rgb(220, 157, 157);
+    height: 15vh;
+    display: flex;
+    /* justify-content: space-between; */
+}
+/* .flex{
+    display: flex;
+} */

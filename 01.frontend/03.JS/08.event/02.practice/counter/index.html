@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count</title>
+    <link rel="stylesheet" href="./style.css">
+    <!--  해당 코드로 JS를 먼저 실행시키면 HTML의 btn이 선언되기 전에 JS 파일로 이동해, btn을 찾지못해 btn을 JS에서 객체화 시킬 때 오류남 -->
+    <!-- 따라서 defer를 사용하여 JS를 읽는 과정을 HTML을 다 읽고 나서 읽는 순서로 미룰 수 O -->
+    <script defer src="app.js"></script> 
+
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Counter</h1>
+            <p id="count_result">0</p>
+            <button class="btn decrease" id="dec">DECREASE</button>
+            <button class="btn reset" id="reset">RESET</button>
+            <button class="btn increase" id="inc">INCREASE</button> 
+            <!-- Alt + shift + 방향키 : 한줄복사 -->
+            <!-- ctrl +shift 방향키 : 한단어 기준으로 이동 -->
+            <!-- shift + 위/아래 방향키 : 한줄 기준 이동 -->
+        </div>
+    </main>
+    <!-- <script src="./app.js"></script> -->
+</body>
+</html>

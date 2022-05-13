@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<div id="confirm">
+<button type="button" onclick="xhr()">확인</button>
+</div>
+
+<script>
+function xhr() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("confirm").innerHTML = xhr.responseText;
+    }
+  };
+  xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/1");
+  xhr.send();
+}
+</script>
+
+</body>
+</html>

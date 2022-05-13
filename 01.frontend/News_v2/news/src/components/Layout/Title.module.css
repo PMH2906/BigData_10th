@@ -1,0 +1,13 @@
+.title{
+    height: 10vh;
+    font-size: 5vh;
+    padding-bottom: 1vh;
+    padding-left: 2vh;
+    justify-content: space-between;
+  
+}
+.icon{
+  margin: 10px;
+  width: 70px;
+  height: 70px;
+}

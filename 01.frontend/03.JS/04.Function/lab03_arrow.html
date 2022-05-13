@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arrow = function(){
+        //     console.log('arrow function');
+        // }
+        
+        // 익명 함수는 arrow 사용 가능
+        let arrow = () => { console.log('arrow function'); }
+        arrow();
+
+        //직접해보기 : sum, minus에 대한 연산 결과를 반환하는 화살표 함수 만들기 
+        let x =10;
+        let y = 5;
+        let sum = (x,y) => {return x+y}
+        let minus = (x,y) => x-y; // 해당 방식도 존재
+        console.log(sum(x,y))
+        console.log(minus(x,y))
+
+        //즉시 실행 함수
+        //이름 O 함수
+        // (function immediatelyFunc(){
+        //     alert('welcome');
+        // }());
+        
+        // //이름 X 함수
+        // (function (){
+        //     alert('welcome');
+        // }());
+        
+        // 매개변수 O 함수
+        // 즉시 함수는 적용되기 전에 맨 처음으로 실행되어 data가 만들어지기 전에 실행됨. 
+        // 아래와 같이 쓰면 => undefined 출력
+        let data = 'welcome';
+        (function immediatelyFunc2(data){
+            alert(data);
+        }());
+
+        //고쳐주기
+        (function immediatelyFunc2(data){
+            alert(data);
+        }(data));
+    </script>
+</body>
+</html>

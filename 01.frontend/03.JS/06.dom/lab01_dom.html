@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gold{
+            color:gold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>메뉴</h1>
+        <div id="desc">설명</div>
+        <button id="check" class="nav" name="checkName">조회</button>
+        <button id="transfer" class="nav">이체</button>
+        <input type="radio" name="gender" value="m">남
+        <input type="radio" name="gender" value="f">성
+        <select name = "car" id="">
+            <option value="">a</option>
+            <option value="">b</option>
+            <option value="">c</option>
+        </select>
+    </div>
+    <script>
+        //Dom Element
+        //getElementById
+        const checkElement = document.getElementById('check');
+        console.log(checkElement); //해당되는 하나만 출력
+        console.log(checkElement.innerText);
+
+        //getElementsByClassName
+        const navElement = document.getElementsByClassName('nav');
+        console.log(navElement); //HTMLCollection => 배열처럼 출력
+        console.log(navElement[0]);
+
+        for(let i=0;i<navElement.length;i++){
+            console.log(navElement[i]);
+        }
+
+        // getElementsByTagName
+        const h1Tag = document.getElementsByTagName('h1'); 
+        console.log(h1Tag); //HTMLCollection:html요소인 tag로 구분 => 배열처럼 출력
+
+        // getElementsByName
+        const radioElement = document.getElementsByName('gender');
+        console.log(radioElement); // NodeList:name이라는 공통적인 특성아래에서 tag로 구분  => 배열처럼 보임
+
+        // Dom manipulation
+        const desc = document.getElementById('desc')
+        // innerHTML은 태그 적용 O
+        desc.innerHTML = '<strong>수정된 설명_innerHTML</strong>';
+        // innerText은 태그 적용 X
+        desc.innerText = '<strong>수정된 설명_innerText</strong>';
+        
+        //폰트사이즈 바꾸기
+        desc.style.fontSize = '30px';
+
+        //태그 추가하기
+        const hrElement = document.createElement('hr');
+        desc.appendChild(hrElement);
+
+        //태그에 클래스 추가해주기
+        desc.classList.add('gold');
+        desc.classList.remove('gold');
+
+    </script>
+</body>
+</html>

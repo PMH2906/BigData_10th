@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = new Array('a', 'b', 'c');
+        let array1 = [1, 2, 3, 4, 5];
+        //배열의 마지막 요소만 출력
+        console.log(array[array.lentgh-1]);
+        console.log(array1[array1.lentgh-1]);
+
+        //배열 요소 추가
+        let array3 = [1, 2, 3, 4, 5]
+        array3.push(6,7); // 맨 뒤 추가
+        array3.unshift(0); // 맨 앞 추가
+        console.log(array3);
+
+        //배열 요소 삭제
+        array3.pop(); // 맨 뒤 삭제
+        array3.shift(0); // 해당 인덱스 번호 삭제
+        console.log(array3);
+
+        // slice & splice 참고 자료 : https://im-developer.tistory.com/103
+        //slice
+        console.log(array3.slice(2)); //두번째 인덱스부터 가져옴
+        console.log(array3.slice(2,4)); //2-3 인덱스까지 가져옴
+
+        // splice
+        console.log(array3.splice(2)); //두번째 인덱스부터 가져옴
+        console.log(array3.splice(1,2)); //1-1 인덱스까지 가져옴
+
+        //반복
+        let array4=[1,2,3,4,5,6,7,8,9,10];
+        for(let i=0;i<array4.length;i++){
+            console.log(array4[i]*5);
+        }
+
+        for(let i of array4){
+            console.log(i);
+        }
+        array4.forEach(function(i){
+            console.log(i);
+        });
+
+        // 메모리 할당 영역 : call stack
+        // call stack은 같은 값을 가지면 같은 주소를 가짐
+        // Heap영역은 아님 
+        let a = 1;
+        let b = a; // a랑 같은 주소를 가짐
+        console.log(b);
+
+        b = 2; // b에 다른 숫자를 대입함으로서 다른 주소를 가짐
+        console.log(b);
+
+        a = 3; // 원래의 주소랑 다른 주소를 가짐으로서 원래의 주소와 값은 가비지컬렉터가 삭제해줌
+        console.log(a);
+
+        // 메모리 할당 영역 : heap
+        let arr = [1, 2, 3];
+        let shallowArr = arr; // 얕은 복사
+        let arr2 = [1, 2, 3];
+        console.log(arr == shallowArr); // true 출력 //데이터 값만 비교
+        console.log(arr === shallowArr); // true 출력 //타입까지 비교
+
+        // call stack은 같은 값을 가지면 같은 주소를 가짐
+        // Heap영역은 아님 
+        console.log(arr == arr2); // false 출력 why? heap같은 영역은 같은 값을 가지더라도 다른 주소를 할당해줌. 따라서 같은 대상이 아니다라고 인식.
+        console.log(arr === arr2); // false 출력 why?
+
+        arr[0]=0;
+        console.log(arr);
+        console.log(shallowArr); // shallowArr 또한 0으로 바뀜
+        // why? call stack에서 heap영역 arr의 동일한 주소값을 참고하기 때문에 해당 주소의 값이 바뀌므로 같이 바뀜   
+
+        // 깊은 복사
+        let deepArr1 = arr.slice(); // heap영역에 원래 존재하고 있던 원본이 다시 만들어지고, 다른 주소를 가짐
+        let deepArr2 = arr.concat(); // 기존에 있던 배열을 가져다가 붙여준 다음 위와 같은 원리로 새로운 객체 생성
+        let deepArr3 = Array.from(arr); // arr대상으로부터 위와 같은 원리로 배열 생성
+
+        console.log(arr==deepArr1); //false출력
+        console.log(arr==deepArr2); //false출력
+        console.log(arr==deepArr3); //false출력
+    </script>
+</body>
+</html>
